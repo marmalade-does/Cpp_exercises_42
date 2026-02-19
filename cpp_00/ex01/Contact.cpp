@@ -10,44 +10,39 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "myAwesomePhonebook.hpp"
+#include "Contact.hpp"
 
-std::string	Contact::getFirstName(void)
+std::string	Contact::getFirstName(void) const
 {
-	return (firstName);
+	return (this->firstName);
 }
 
-std::string	Contact::getLastName(void)
+std::string	Contact::getLastName(void) const
 {
-	return (lastName);
+	return (this->lastName);
 }
 
-std::string	Contact::getNickname(void)
+std::string	Contact::getNickname(void) const
 {
-	return (nickName);
+	return (this->nickName);
 }
 
-std::string	Contact::getDarkestSecret(void)
+std::string	Contact::getPhoneNumber(void) const
 {
-	return (secret);
+	return (this->phoneNumber);
 }
 
-std::string	Contact::getPhoneNumber(void)
+std::string	Contact::getDarkestSecret(void) const
 {
-	return (num);
+	return (this->darkestSecret);
 }
 
-
-std::string Contact::setFirstName(std::string firstName)
+void	Contact::setContact(std::string first, std::string last,
+		std::string nick, std::string phone, std::string secret)
 {
-	this->firstName.assign(firstName);
-}
-
-void		Contact::setContact(std::string FirstName, std::string LastName, std::string Nickname, std::string DarkestSecret, std::string PhoneNumber)
-{
-	this->first.assign(FirstName);
-	this->last.assign(LastName);
-	this->nick.assign(Nickname);
-	this->secret.assign(DarkestSecret);
-	this->num.assign(PhoneNumber);
+	this->firstName = first;
+	this->lastName = last;
+	this->nickName = nick;
+	this->phoneNumber = phone;
+	this->darkestSecret = secret;
 }

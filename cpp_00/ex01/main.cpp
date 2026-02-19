@@ -1,33 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   megaphone.cpp                                      :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lroberts <marvin@42.barcelona>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/17 13:22:51 by lroberts          #+#    #+#             */
-/*   Updated: 2026/02/17 13:22:52 by lroberts         ###   ########.fr       */
+/*   Created: 2025/09/24 16:39:48 by lroberts          #+#    #+#             */
+/*   Updated: 2025/09/24 16:40:09 by lroberts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
+#include "PhoneBook.hpp"
 
-/**
- * @brief the (char) cast is obligatory because of '<<'s operator overloading
- */
-int main(int argc, char **argv)
+int	main(void)
 {
-	if (argc == 1)
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK *" << std::endl;
-	else
+	PhoneBook	book;
+	std::string	cmd;
+
+	while (true)
 	{
-		for (int i = 1; argv[i]; i++)
-		{
-			for (int j = 0; argv[i][j]; j++)
-				std::cout << (char)toupper(argv[i][j]);
-		}
-		std::cout << std::endl;
+		std::cout << "Enter a command (ADD, SEARCH, EXIT): ";
+		if (!std::getline(std::cin, cmd))
+			break ;
+		if (cmd == "ADD")
+			book.cmdADD();
+		else if (cmd == "SEARCH")
+			book.cmdSEARCH();
+		else if (cmd == "EXIT")
+			break ;
 	}
 	return (0);
 }
-
