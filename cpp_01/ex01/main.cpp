@@ -5,38 +5,22 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lroberts <marvin@42.barcelona>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/24 16:39:48 by lroberts          #+#    #+#             */
-/*   Updated: 2026/02/22 19:23:08 by lroberts         ###   ########.fr       */
+/*   Created: 2026/02/22 13:05:52 by lroberts          #+#    #+#             */
+/*   Updated: 2026/02/22 13:16:42 by lroberts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PhoneBook.class.hpp"
+#include "Zombie.hpp"
 
-
-int	main(void)
-/**
- * @remark getline() returns a stream (allowing for chaining);
- * 	however if the stream has a EOF then in boolean contexts
- * 	it evaluates to false
- */
+int main(void)
 {
-	PhoneBook	book;
-	std::string	cmd;
+	int N = 5;
 
-	while (true)
-	{
-		std::cout << "Enter a command (ADD, SEARCH, EXIT): ";
-		if (!std::getline(std::cin, cmd))
-		{
-			std::cout << std::endl;
-			break ;
-		}
-		if (cmd == "ADD")
-			book.addContact();
-		else if (cmd == "SEARCH")
-			book.searchContact();
-		else if (cmd == "EXIT")
-			break ;
-	}
+	Zombie *horde = zombieHorde(N, "Joey's zombie hoard");
+
+	for (int i = 0; i < N; i++)
+		horde[i].announce();
+
+	delete[] horde;
 	return (0);
 }

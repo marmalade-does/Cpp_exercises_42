@@ -5,38 +5,30 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lroberts <marvin@42.barcelona>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/24 16:39:48 by lroberts          #+#    #+#             */
-/*   Updated: 2026/02/22 19:23:08 by lroberts         ###   ########.fr       */
+/*   Created: 2026/02/22 13:37:13 by lroberts          #+#    #+#             */
+/*   Updated: 2026/02/22 15:42:55 by lroberts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "PhoneBook.class.hpp"
+#include "HumanA.hpp"
+#include "HumanB.hpp"
 
-
-int	main(void)
-/**
- * @remark getline() returns a stream (allowing for chaining);
- * 	however if the stream has a EOF then in boolean contexts
- * 	it evaluates to false
- */
+int main(void)
 {
-	PhoneBook	book;
-	std::string	cmd;
-
-	while (true)
 	{
-		std::cout << "Enter a command (ADD, SEARCH, EXIT): ";
-		if (!std::getline(std::cin, cmd))
-		{
-			std::cout << std::endl;
-			break ;
-		}
-		if (cmd == "ADD")
-			book.addContact();
-		else if (cmd == "SEARCH")
-			book.searchContact();
-		else if (cmd == "EXIT")
-			break ;
+		Weapon club = Weapon("crude spiked club");
+		HumanA bob("Bob", club);
+		bob.attack();
+		club.setType("some other type of club");
+		bob.attack();
 	}
-	return (0);
+	{
+		Weapon club = Weapon("crude spiked club");
+		HumanB jim("Jim");
+		jim.setWeapon(club);
+		jim.attack();
+		club.setType("some other type of club");
+		jim.attack();
+	}
+	return 0;
 }

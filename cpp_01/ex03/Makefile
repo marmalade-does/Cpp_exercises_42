@@ -1,14 +1,15 @@
-NAME	= account
 
-CC		= c++
-CFLAGS	= -Wall -Wextra -Werror -std=c++98
+NAME = unnecessary_violence
 
-SRCS	= Account.cpp tests.cpp
-OBJS	= $(SRCS:.cpp=.o)
+SRCS = main.cpp Weapon.cpp HumanA.cpp HumanB.cpp
+OBJS = $(SRCS:.cpp=.o)
+
+CC = c++
+CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
+$(NAME): $(OBJS) Makefile
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
 %.o: %.cpp

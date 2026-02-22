@@ -1,14 +1,14 @@
-NAME	= account
+NAME = harl
 
-CC		= c++
-CFLAGS	= -Wall -Wextra -Werror -std=c++98
+SRCS = main.cpp Harl.cpp
+OBJS = $(SRCS:.cpp=.o)
 
-SRCS	= Account.cpp tests.cpp
-OBJS	= $(SRCS:.cpp=.o)
+CC = c++
+CFLAGS = -Wall -Wextra -Werror -std=c++98
 
 all: $(NAME)
 
-$(NAME): $(OBJS)
+$(NAME): $(OBJS) Makefile
 	$(CC) $(CFLAGS) $(OBJS) -o $(NAME)
 
 %.o: %.cpp
