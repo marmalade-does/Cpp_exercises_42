@@ -6,7 +6,7 @@
 /*   By: lroberts <marvin@42.barcelona>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/24 16:39:48 by lroberts          #+#    #+#             */
-/*   Updated: 2026/02/20 17:30:25 by lroberts         ###   ########.fr       */
+/*   Updated: 2026/02/22 20:08:06 by lroberts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,16 @@ PhoneBook::PhoneBook(void) : _index(0), _count(0)
  * @remark std::string internally uses a `new/delete` allocations, however, those are managed when it enters/leaves scope
  * @remark std::string is returned as a first-class object
  */
+bool	PhoneBook::getInput(const std::string &prompt, std::string &out)
+{
+	std::cout << prompt;
+	if (!std::getline(std::cin, out))
+		return (false);
+	out.erase(0, out.find_first_not_of(" \t\r\n"));
+	out.erase(out.find_last_not_of(" \t\r\n") + 1);
+	return (!out.empty());
+}
+
 std::string	PhoneBook::truncStr(std::string str) const
 {
 	if (str.length() > 10)
@@ -36,20 +46,15 @@ void	PhoneBook::addContact(void)
 {
 	std::string	first, last, nick, phone, secret;
 
-	std::cout << "First name: ";
-	if (!std::getline(std::cin, first))
+	if (!getInput("First name: ", first))
 		return ;
-	std::cout << "Last name: ";
-	if (!std::getline(std::cin, last))
+	if (!getInput("Last name: ", last))
 		return ;
-	std::cout << "Nickname: ";
-	if (!std::getline(std::cin, nick))
+	if (!getInput("Nickname: ", nick))
 		return ;
-	std::cout << "Phone number: ";
-	if (!std::getline(std::cin, phone))
+	if (!getInput("Phone number: ", phone))
 		return ;
-	std::cout << "Darkest secret: ";
-	if (!std::getline(std::cin, secret))
+	if (!getInput("Darkest secret: ", secret))
 		return ;
 	if (first.empty() || last.empty() || nick.empty()
 		|| phone.empty() || secret.empty())

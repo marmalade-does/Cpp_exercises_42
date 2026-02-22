@@ -18,9 +18,10 @@ class PhoneBook
 		int		_index;
 		int		_count;
 		Contact	_contacts[8];
+		bool	getInput(const std::string &prompt, std::string &out);
 		void	displayContactTable(void) const;
 		void	displayContact(int i) const;
-		std::string	truncStr(std::string str) const; // const means that it doesn't edit data in this class?
+		std::string	truncStr(std::string str) const;
 };
 
 #endif

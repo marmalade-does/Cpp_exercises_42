@@ -6,19 +6,19 @@
 /*   By: lroberts <marvin@42.barcelona>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/24 16:39:48 by lroberts          #+#    #+#             */
-/*   Updated: 2026/02/22 19:23:08 by lroberts         ###   ########.fr       */
+/*   Updated: 2026/02/22 20:02:00 by lroberts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "PhoneBook.class.hpp"
 
 
-int	main(void)
 /**
  * @remark getline() returns a stream (allowing for chaining);
  * 	however if the stream has a EOF then in boolean contexts
  * 	it evaluates to false
  */
+int	main(void)
 {
 	PhoneBook	book;
 	std::string	cmd;
