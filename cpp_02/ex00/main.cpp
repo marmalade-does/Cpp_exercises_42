@@ -5,27 +5,25 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lroberts <marvin@42.barcelona>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/22 12:28:27 by lroberts          #+#    #+#             */
-/*   Updated: 2026/02/23 12:00:00 by lroberts         ###   ########.fr       */
+/*   Created: 2026/02/23 19:24:07 by lroberts          #+#    #+#             */
+/*   Updated: 2026/02/23 19:25:25 by lroberts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+# include "Fixed.hpp"
+# include <iostream>
 
-/**
- * what is the main learning
- * `new` keyword puts it on the heap, ∴ you have to `delete` it
- * When it is on the stack destructor is run when function popped of function stack
- */
 int main(void)
 {
-	std::cout  << "----- Heap Zombie -----" << std::endl;
-	Zombie *zombie = newZombie("Joey");
-	zombie->announce();
-	delete zombie;
+	Fixed a;
+	Fixed b(a);
+	Fixed c;
 
-	std::cout  << "----- Stack Zombie -----" << std::endl;
-	randomChump("Billy");
+	c = b;
 
-	return (0);
+	std::cout << a.getRawBits() << std::endl;
+	std::cout << b.getRawBits() << std::endl;
+	std::cout << c.getRawBits() << std::endl;
+
+	return 0;
 }

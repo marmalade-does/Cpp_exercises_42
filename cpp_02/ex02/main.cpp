@@ -5,27 +5,27 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lroberts <marvin@42.barcelona>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/22 12:28:27 by lroberts          #+#    #+#             */
-/*   Updated: 2026/02/23 12:00:00 by lroberts         ###   ########.fr       */
+/*   Created: 2026/02/23 21:33:35 by lroberts          #+#    #+#             */
+/*   Updated: 2026/02/24 17:23:40 by lroberts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+# include "Fixed.hpp"
 
-/**
- * what is the main learning
- * `new` keyword puts it on the heap, ∴ you have to `delete` it
- * When it is on the stack destructor is run when function popped of function stack
- */
 int main(void)
 {
-	std::cout  << "----- Heap Zombie -----" << std::endl;
-	Zombie *zombie = newZombie("Joey");
-	zombie->announce();
-	delete zombie;
+	Fixed           a;
+	Fixed const     b(Fixed(5.05f) * Fixed(2));
 
-	std::cout  << "----- Stack Zombie -----" << std::endl;
-	randomChump("Billy");
+	std::cout << a << std::endl;
+	std::cout << ++a << std::endl;
+	std::cout << a << std::endl;
+	std::cout << a++ << std::endl;
+	std::cout << a << std::endl;
 
-	return (0);
+	std::cout << b << std::endl;
+
+	std::cout << Fixed::max(a, b) << std::endl;
+
+	return 0;
 }

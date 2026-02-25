@@ -1,31 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   randomChump.cpp                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lroberts <marvin@42.barcelona>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/22 12:28:27 by lroberts          #+#    #+#             */
+/*   Created: 2026/02/23 12:00:00 by lroberts          #+#    #+#             */
 /*   Updated: 2026/02/23 12:00:00 by lroberts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Zombie.hpp"
 
-/**
- * what is the main learning
- * `new` keyword puts it on the heap, ∴ you have to `delete` it
- * When it is on the stack destructor is run when function popped of function stack
- */
-int main(void)
+void	randomChump(std::string name)
 {
-	std::cout  << "----- Heap Zombie -----" << std::endl;
-	Zombie *zombie = newZombie("Joey");
-	zombie->announce();
-	delete zombie;
-
-	std::cout  << "----- Stack Zombie -----" << std::endl;
-	randomChump("Billy");
-
-	return (0);
+	Zombie zombie(name);
+	zombie.announce();
 }

@@ -6,7 +6,7 @@
 /*   By: lroberts <marvin@42.barcelona>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/22 16:22:25 by lroberts          #+#    #+#             */
-/*   Updated: 2026/02/22 16:48:31 by lroberts         ###   ########.fr       */
+/*   Updated: 2026/02/22 20:45:20 by lroberts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,14 +21,14 @@ Harl::~Harl(void)
 }
 
 /**
- * @brief `typedef void (Harl::*HarlFunc)(void);` defines Harlfunc as a pointer to a function
+ * @brief `typedef void (Harl::*HarlFunc_t)(void);` defines HarlFunc_t as a pointer to a function
  * look through the levels and then use the appropiate function.
  */
 void    Harl::complain(std::string level)
 {
-	typedef void (Harl::*HarlFunc)(void);
+	typedef void (Harl::*HarlFunc_t)(void);
 
-	HarlFunc        funcs[] = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
+	HarlFunc_t        funcs[] = {&Harl::debug, &Harl::info, &Harl::warning, &Harl::error};
 	std::string     levels[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 
 	for (int i = 0; i < 4; i++)
