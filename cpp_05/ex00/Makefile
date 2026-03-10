@@ -1,6 +1,6 @@
 NAME = fixed
 
-SRCS = main.cpp Fixed.cpp
+SRCS = main.cpp Bureaucrat.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 CC = c++

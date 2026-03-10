@@ -1,0 +1,58 @@
+
+classDiagram
+    class AMateria {
+        <<abstract>>
+        #string type
+        +AMateria(string type)
+        +getType() string
+        +clone() AMateria*
+        +use(ICharacter& target) void
+    }
+
+    class Ice {
+        +clone() AMateria*
+        +use(ICharacter& target) void
+    }
+
+    class Cure {
+        +clone() AMateria*
+        +use(ICharacter& target) void
+    }
+
+    class ICharacter {
+        <<interface>>
+        +getName() string
+        +equip(AMateria* m) void
+        +unequip(int idx) void
+        +use(int idx, ICharacter& target) void
+    }
+
+    class Character {
+        -string name
+        -AMateria* inventory[4]
+        +Character(string name)
+        +getName() string
+        +equip(AMateria* m) void
+        +unequip(int idx) void
+        +use(int idx, ICharacter& target) void
+    }
+
+    class IMateriaSource {
+        <<interface>>
+        +learnMateria(AMateria*) void
+        +createMateria(string type) AMateria*
+    }
+
+    class MateriaSource {
+        -AMateria* learned[4]
+        +learnMateria(AMateria*) void
+        +createMateria(string type) AMateria*
+    }
+
+    AMateria <|-- Ice
+    AMateria <|-- Cure
+    ICharacter <|.. Character
+    IMateriaSource <|.. MateriaSource
+    Character o-- AMateria : inventory
+    MateriaSource o-- AMateria : learned templates
+    AMateria ..> ICharacter : use() takes

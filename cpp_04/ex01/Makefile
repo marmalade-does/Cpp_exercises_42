@@ -1,6 +1,6 @@
-NAME = fixed
+NAME = polymorphism
 
-SRCS = main.cpp Fixed.cpp
+SRCS = main.cpp Animal.cpp Dog.cpp Cat.cpp Brain.cpp
 OBJS = $(SRCS:.cpp=.o)
 
 CC = c++
