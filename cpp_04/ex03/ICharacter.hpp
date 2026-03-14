@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lroberts <marvin@42.barcelona>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/10 13:15:58 by lroberts          #+#    #+#             */
-/*   Updated: 2026/03/10 13:16:45 by lroberts         ###   ########.fr       */
+/*   Created: 2026/03/12 10:48:40 by lroberts          #+#    #+#             */
+/*   Updated: 2026/03/12 12:29:46 by lroberts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,18 @@
 
 class AMateria;
 
+/**
+ * @remark even though this is an interface, I had to define the destructor in ICharacter.cpp
+ * normal production code would have it as the comment has it, but I worried that was ANTI norm 
+ */
 class ICharacter
 {
 public:
-	virtual ~ICharacter() {}
-
-	virtual const std::string & getName() const = 0;
+	virtual ~ICharacter(); // {};
+	virtual const std::string &getName() const = 0;
 	virtual void equip(AMateria * m) = 0;
 	virtual void unequip(int idx) = 0;
-	virtual void use(int idx, ICharacter & target) = 0;
+	virtual void use(int idx, ICharacter &target) = 0;
 };
 
-#endif /* ICHARACTER_HPP */
+#endif

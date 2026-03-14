@@ -28,15 +28,27 @@ int main(void)
 	for (int i = 0; i < 10; i++)
 		delete animals[i];
 
-	std::cout << std::endl << "=== Deep copy test ===" << std::endl;
+	std::cout << std::endl << "=== Deep copy test (Dog) ===" << std::endl;
 	Dog basic;
 	basic.getBrain()->setIdea(0, "I want food");
 	{
-		Dog tmp = basic;
-		std::cout << "tmp brain idea: " << tmp.getBrain()->getIdea(0) << std::endl;
-		std::cout << "basic brain idea: " << basic.getBrain()->getIdea(0) << std::endl;
+		Dog copy = basic;
+		copy.getBrain()->setIdea(0, "I want a walk");
+		std::cout << "basic idea[0]: " << basic.getBrain()->getIdea(0) << std::endl;
+		std::cout << "copy  idea[0]: " << copy.getBrain()->getIdea(0) << std::endl;
 	}
-	std::cout << "basic brain idea after tmp destroyed: " << basic.getBrain()->getIdea(0) << std::endl;
+	std::cout << "basic idea[0] after copy destroyed: " << basic.getBrain()->getIdea(0) << std::endl;
+
+	std::cout << std::endl << "=== Deep copy test (Cat) ===" << std::endl;
+	Cat cat_basic;
+	cat_basic.getBrain()->setIdea(0, "I want food");
+	{
+		Cat cat_copy = cat_basic;
+		cat_copy.getBrain()->setIdea(0, "I want a walk");
+		std::cout << "cat_basic idea[0]: " << cat_basic.getBrain()->getIdea(0) << std::endl;
+		std::cout << "cat_copy idea[0]: " << cat_copy.getBrain()->getIdea(0) << std::endl;
+	}
+	std::cout << "cat_basic idea[0] after cat_copy destroyed: " << cat_basic.getBrain()->getIdea(0) << std::endl;
 
 	return (0);
 }

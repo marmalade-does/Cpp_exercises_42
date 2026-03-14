@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lroberts <marvin@42.barcelona>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/10 13:18:36 by lroberts          #+#    #+#             */
-/*   Updated: 2026/03/10 13:24:55 by lroberts         ###   ########.fr       */
+/*   Created: 2026/03/11 12:38:51 by lroberts          #+#    #+#             */
+/*   Updated: 2026/03/12 12:31:59 by lroberts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,6 @@
 # include "IMateriaSource.hpp"
 # include "AMateria.hpp"
 
-/**
- * @remark that IMateriaSource contains: 
- * 		virtual destructor()
- * 		learnMateria
- * 		createMateria
- */
 class MateriaSource : public IMateriaSource
 {
 private:

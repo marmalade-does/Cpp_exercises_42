@@ -1,46 +1,50 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AMateria.cpp                                       :+:      :+:    :+:   */
+/*   Ice.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: lroberts <marvin@42.barcelona>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/12 10:45:02 by lroberts          #+#    #+#             */
-/*   Updated: 2026/03/12 12:29:46 by lroberts         ###   ########.fr       */
+/*   Created: 2026/03/12 11:46:19 by lroberts          #+#    #+#             */
+/*   Updated: 2026/03/12 12:31:02 by lroberts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "AMateria.hpp"
+#include "Ice.hpp"
 #include "ICharacter.hpp"
 
-AMateria::AMateria() : _type("default")
+/**
+ * @remark Ice is inhereted from AMateria (and abstract class, therfore )
+ */
+Ice::Ice() : AMateria("ice")
 {
 }
 
-AMateria::AMateria(const std::string &type) : _type(type)
+Ice::Ice(const Ice &src) : AMateria(src)
 {
 }
 
-AMateria::AMateria(const AMateria &src) : _type(src._type)
+Ice &Ice::operator=(const Ice &rhs)
 {
-}
-
-AMateria &AMateria::operator=(const AMateria &rhs)
-{
-	(void)rhs;
+	AMateria::operator=(rhs);
 	return *this;
 }
 
-AMateria::~AMateria()
+Ice::~Ice()
 {
 }
 
-const std::string &AMateria::getType() const
+//----------
+
+/**
+ * this is abstract/virtual in 
+ */
+AMateria *Ice::clone() const
 {
-	return _type;
+	return new Ice(*this);
 }
 
-void AMateria::use(ICharacter &target)
+void Ice::use(ICharacter &target)
 {
-	(void)target;
+	std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
 }

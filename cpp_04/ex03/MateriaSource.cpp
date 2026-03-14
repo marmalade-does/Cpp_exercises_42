@@ -5,11 +5,10 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lroberts <marvin@42.barcelona>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/10 13:25:53 by lroberts          #+#    #+#             */
-/*   Updated: 2026/03/10 13:33:41 by lroberts         ###   ########.fr       */
+/*   Created: 2026/03/12 11:37:56 by lroberts          #+#    #+#             */
+/*   Updated: 2026/03/12 12:31:44 by lroberts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 
 #include "MateriaSource.hpp"
 
@@ -30,18 +29,6 @@ MateriaSource::MateriaSource(const MateriaSource &src)
 	}
 }
 
-/**
- * @remark remember the FOOTGUN.
- * 	`MateriaSource materia_a = materia_b`
- * 	→ since declaration is on initialisation line this defualts
- *  → to copy constructor.
- * 
- * 	`MateriaSource materia_a;
- * 	 materia_a = materia_b;`
- * 	→ this is a normal `operator=` assignation
- * 
- * 	∴ you always need to do the delete in the assignment operator 
- */
 MateriaSource &MateriaSource::operator=(const MateriaSource &rhs)
 {
 	if (this != &rhs)
@@ -66,12 +53,12 @@ MateriaSource::~MateriaSource()
 		delete _templates[i];
 }
 
-// --------------
+// ---------------------
 
-/**
- * @todo have I implemented this right?
- */
-void MateriaSource::learnMateria(AMateria* m)
+/// @brief makes the MateriaSource learn a Materia
+/// @param m a materia
+/// @todo do I want to delete the materia when I don't need it?
+void MateriaSource::learnMateria(AMateria *m)
 {
 	if (!m)
 		return ;
@@ -87,13 +74,13 @@ void MateriaSource::learnMateria(AMateria* m)
 }
 
 /**
- * @todo create materia only exists if 
+ * This will create a materia fron the materia source
  */
-AMateria* MateriaSource::createMateria(const std::string & type)
+AMateria *MateriaSource::createMateria(const std::string &type)
 {
 	for (int i = 0; i < 4; i++)
 	{
-		if (_templates[i] && _templates[i]->getType() == type)
+		if (_templates[i] &&_templates[i]->getType() == type)
 			return _templates[i]->clone();
 	}
 	return (0);

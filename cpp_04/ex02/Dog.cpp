@@ -19,11 +19,13 @@ Dog::Dog(void)
 {
 	std::cout << "Dog default constructor called" << std::endl;
 	_type = "Dog";
+	_brain = new Brain();
 }
 
 Dog::Dog(const Dog &src) : Animal(src)
 {
 	std::cout << "Dog copy constructor called" << std::endl;
+	_brain = new Brain(*src._brain);
 }
 
 /**
@@ -49,6 +51,7 @@ Dog &Dog::operator=(const Dog &rhs)
 Dog::~Dog(void)
 {
 	std::cout << "Dog destructor called" << std::endl;
+	delete _brain;
 }
 
 // ------------

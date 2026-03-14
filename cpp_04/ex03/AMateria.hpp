@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: lroberts <marvin@42.barcelona>             +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/10 12:14:29 by lroberts          #+#    #+#             */
-/*   Updated: 2026/03/10 13:14:48 by lroberts         ###   ########.fr       */
+/*   Created: 2026/03/11 12:38:00 by lroberts          #+#    #+#             */
+/*   Updated: 2026/03/12 12:30:17 by lroberts         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 class ICharacter;
 
 /**
- * 
+ * @remark use is not pure virtual ∵ says so in subject
  */
 class AMateria
 {
@@ -28,15 +28,15 @@ protected:
 
 public:
 	AMateria();
-	AMateria(const std::string & type);
-	AMateria(const AMateria & src);
-	AMateria & operator=(const AMateria & rhs);
+	AMateria(const std::string &type);
+	AMateria(const AMateria &src);
+	AMateria &operator=(const AMateria &rhs);
 	virtual ~AMateria();
 
-	const std::string & getType() const;
+	const std::string &getType() const;
 
-	virtual AMateria* clone() const = 0;
-	virtual void use(ICharacter & target);
+	virtual AMateria *clone() const = 0;
+	virtual void use(ICharacter &target);
 };
 
 #endif /* AMATERIA_HPP */
